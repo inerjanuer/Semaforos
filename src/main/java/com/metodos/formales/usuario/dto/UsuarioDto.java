@@ -2,7 +2,7 @@ package com.metodos.formales.usuario.dto;
 
 import java.io.Serializable;
 
-public class UsuarioDto implements Serializable{
+public class UsuarioDto implements Serializable {
 
 	private static final long serialVersionUID = -3484741837469545380L;
 
@@ -12,13 +12,17 @@ public class UsuarioDto implements Serializable{
 
 	private String email;
 
+	private String contrasena;
+
 	public UsuarioDto() {
 	}
 
-	public UsuarioDto(Long id, String nombre, String email) {
+	public UsuarioDto(Long id, String nombre, String email, String contrasena) {
+		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.email = email;
+		this.contrasena = contrasena;
 	}
 
 	public Long getId() {
@@ -43,6 +47,14 @@ public class UsuarioDto implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 }

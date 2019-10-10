@@ -1,5 +1,7 @@
 package com.metodos.formales.usuario.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,11 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.metodos.formales.semaforo.entity.SemaforoEntity;
 
 @Entity
 @Table(name = "usuario")
-public class UsuarioEntity {
+public class UsuarioEntity implements Serializable{
+
+	private static final long serialVersionUID = -3952392824257618095L;
 
 	@Id
 	@Column(name = "id_usuario")
@@ -22,13 +25,18 @@ public class UsuarioEntity {
 
 	private String email;
 
+	@Column(length = 60)
+	private String contrasena;
+
 	public UsuarioEntity() {
 	}
 
-	public UsuarioEntity(Long id, String nombre, String email) {
+	public UsuarioEntity(Long id, String nombre, String email, String contrasena) {
+		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.email = email;
+		this.contrasena = contrasena;
 	}
 
 	public Long getId() {
@@ -53,6 +61,14 @@ public class UsuarioEntity {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 }
