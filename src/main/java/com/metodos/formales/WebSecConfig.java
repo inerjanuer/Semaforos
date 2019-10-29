@@ -23,12 +23,11 @@ public class WebSecConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		.authorizeRequests()
-		.antMatchers("/**").hasRole("USER")
-        .antMatchers("/**").hasRole("ADMIN")
 		.anyRequest().authenticated()
-		.and().formLogin().permitAll()
+		.and().formLogin().loginPage("/login").permitAll()
 		.and().logout().permitAll()
-		.and().httpBasic();
+		.and().headers().disable()
+		.httpBasic();
 	}
 
 	
