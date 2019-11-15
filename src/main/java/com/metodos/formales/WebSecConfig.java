@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class WebSecConfig extends WebSecurityConfigurerAdapter {
+	
+	String[] resources = new String[] { "/resources/**", "/webjars/**" };
 
 	
 	@Autowired
@@ -23,6 +25,7 @@ public class WebSecConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		.authorizeRequests()
+		.antMatchers(resources).permitAll()
 		.anyRequest().authenticated()
 		.and().formLogin().loginPage("/login").permitAll()
 		.and().logout().permitAll()
