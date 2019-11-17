@@ -10,33 +10,32 @@
 <body>
 
 	<div class="container-fluid">
-		<div class="row">
 
-			<h1 class="title">Iniciar Sesión</h1>
-
-
-			<form action="" method="post" class="needs-validation">
-
-				<div class="form-row">
-					<div class="col-md-12">
-						<label for="username">Nombre</label> 
-						<input type="text"
-							id="username" name="username" class="form-control" />
-					</div>
-
-					<div>
-						<label for="password">Contraseña</label> <input type="password"
-							id="password" name="password" />
-					</div>
-
-					<button type="submit" class="btn">Log in</button>
+			
+			<div class="p-5 d-flex justify-content-center h-100">
+			<div class="card border-primary">
+				<div class="card-header">
+					<h1 class="title">Iniciar Sesión</h1>
 				</div>
-
-
-			</form>
-
+				<div class="card-body">
+					<form action="" method="post" class="needs-validation">
+						<div class="form-row">
+							<div class="col-md-12 form-group">
+								<label for="username">Nombre</label> 
+								<input type="text" id="username" name="username" class="form-control" />
+							</div>
+							<div class="col-md-12 form-group">
+								<label for="password">Contraseña</label> 
+								<input type="password" class="form-control"	id="password" name="password" />
+							</div>	
+							<button type="submit" class="btn btn-success btn-block">Log in</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+</div>
 		</div>
-	</div>
 
 </body>
 </html>

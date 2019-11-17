@@ -8,6 +8,7 @@
 <%@ include file="../util/scripts.jsp"%>
 </head>
 <body>
+<%@ include file="../util/navbar.jsp"%>
 
 
 

@@ -8,27 +8,28 @@
 <%@ include file="../util/scripts.jsp"%>
 </head>
 <body>
+<%@ include file="../util/navbar.jsp"%>
 	<div class="container-fluid">
 		<form action="" method="POST">
 			<div class="form-row">
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label for="latitud">Latitud</label> <input id="latitud" name="latitud" type="text"
-							class="form-control">
+						<label for="latitud">Latitud</label> 
+						<input id="latitud" name="latitud" type="text" value="${dto.latitud}" class="form-control">
 					</div>
 				</div>
 				
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label for="longitud">Longitud</label> <input id="longitud" name="longitud" type="text"
-							class="form-control">
+						<label for="longitud">Longitud</label> 
+						<input id="longitud" name="longitud" type="text" value="${dto.longitud}" class="form-control">
 					</div>
 				</div>
 				
 				<div class="col-lg-12">
 					<div class="form-group">
-						<label for="time">Tiempo</label> <input id="time" name="time" type="number"
-							class="form-control">
+						<label for="time">Tiempo</label> 
+						<input id="time" name="time" type="number" value="${dto.time}" class="form-control">
 					</div>
 				</div>
 				
@@ -47,20 +48,13 @@
 					</div>
 				</div>
 				
-				
-				
 				<div class="col-lg-12">
-						<div class="form-group">
-							<input type="submit" value="Guardar" class="btn btn-success float-left">
-						
-						</div>
+					<div class="form-group">
+						<input type="submit" value="Guardar" class="btn btn-success float-left">
 					</div>
-
+				</div>
 			</div>
-
 		</form>
-
-
 	</div>
 
 </body>

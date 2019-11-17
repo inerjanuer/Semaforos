@@ -8,6 +8,7 @@
 <%@ include file="../util/scripts.jsp"%>
 </head>
 <body>
+<%@ include file="../util/navbar.jsp"%>
 	<div class="container-fluid">
 		<form action="" method="POST">
 			<div class="form-row">

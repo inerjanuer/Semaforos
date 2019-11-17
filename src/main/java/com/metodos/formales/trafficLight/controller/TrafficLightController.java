@@ -83,4 +83,44 @@ public class TrafficLightController {
 			return "redirect:" +  "/traffic";
 		}
 	}
+	
+	@GetMapping("/traffic/edit/{id}")
+	public String updateGet(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes, Locale locale) {
+		try {
+			TrafficLightDto dto = null;
+			if(id != null && id > 0) {
+				dto = this.service.findById(id);
+				model.addAttribute("dto",dto);
+			}
+			addList(model);
+			return GENERAL_FOLDER + "create-edit";
+		} catch (Exception e) {
+			LOGGER.error("Error al crear: ", e);
+			redirectAttributes.addFlashAttribute("messageerror","Error");
+			return "redirect:" + "/traffic";
+		}
+	}
+
+	@PostMapping("/traffic/edit/{id}")
+	public String updateTraffic(@PathVariable("id") Long id, TrafficLightDto dto, RedirectAttributes redirectAttributes, Locale locale, Model model){
+		LOGGER.info("create: {}", dto);
+		
+		try {
+			TrafficLightDto dtoSave = null;
+			if(id != null && id > 0) {
+				dtoSave = this.service.findById(id);
+				dtoSave = dto;
+			}
+			SystemDto status = this.systemService.findById(dto.getStatus().getId());
+			dtoSave.setStatus(status);
+			this.service.save(dtoSave);
+			redirectAttributes.addFlashAttribute("messageerror","El sensor se creo correctamente");
+			return "redirect:" +  "/traffic";
+		} catch (Exception e) {
+			LOGGER.error("Error al crear: ", e);
+			redirectAttributes.addFlashAttribute("dto", dto);
+			redirectAttributes.addFlashAttribute("messageerror","No fue posible crear el sensor");
+			return "redirect:" +  "/traffic";
+		}
+	}
 }
