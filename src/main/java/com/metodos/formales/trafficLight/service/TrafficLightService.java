@@ -46,6 +46,12 @@ public class TrafficLightService {
 	public void delete(TrafficLightDto dto) {
 		this.repository.delete(convertDtoToEntity(dto));
 	}
+	
+	@Transactional
+	public List<TrafficLightDto> findByCalleCarrera(boolean value){
+		List<TrafficLightEntity> list = this.repository.findByCallecarre(value);
+		return list.stream().map(TrafficLightEntity -> convertEntityToDto(TrafficLightEntity)).collect(Collectors.toList());
+	}
 
 	static TrafficLightDto convertEntityToDto(TrafficLightEntity entity) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);

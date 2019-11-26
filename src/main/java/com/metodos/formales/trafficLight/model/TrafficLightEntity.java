@@ -31,6 +31,10 @@ public class TrafficLightEntity implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private SystemEntity status;
 
+	private boolean callecarre;
+
+	private boolean color;
+
 	public TrafficLightEntity() {
 	}
 
@@ -40,6 +44,27 @@ public class TrafficLightEntity implements Serializable {
 		this.longitud = longitud;
 		this.time = time;
 		this.status = status;
+	}
+
+	public TrafficLightEntity(long id, String latitud, String longitud, String time, SystemEntity status,
+			boolean callecarre) {
+		this.id = id;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.time = time;
+		this.status = status;
+		this.callecarre = callecarre;
+	}
+
+	public TrafficLightEntity(long id, String latitud, String longitud, String time, SystemEntity status,
+			boolean callecarre, boolean color) {
+		this.id = id;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.time = time;
+		this.status = status;
+		this.callecarre = callecarre;
+		this.color = color;
 	}
 
 	public long getId() {
@@ -80,6 +105,22 @@ public class TrafficLightEntity implements Serializable {
 
 	public void setStatus(SystemEntity status) {
 		this.status = status;
+	}
+
+	public boolean isCallecarre() {
+		return callecarre;
+	}
+
+	public void setCallecarre(boolean callecarre) {
+		this.callecarre = callecarre;
+	}
+
+	public boolean isColor() {
+		return color;
+	}
+
+	public void setColor(boolean color) {
+		this.color = color;
 	}
 
 }

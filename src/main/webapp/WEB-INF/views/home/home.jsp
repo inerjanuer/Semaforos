@@ -43,17 +43,37 @@
 		});
 
 		var greenIcon = new LeafIcon({iconUrl: 'https://image.winudf.com/v2/image/YnIuY29tLmFwcC5ncHUxODI2NTE2LmdwdTFmZGE4NTFiYzUzNDMzNDdhMmI1ODcyMjYyNDYxYjViX2ljb25fMTUzODgwMzYxN18wODU/icon.png?w=170&fakeurl=1'});
+
+		var LeafIcon2 = L.Icon.extend({
+			options: {
+				shadowUrl: 'https://img2.freepng.es/20180329/kqw/kisspng-traffic-light-computer-icons-red-clip-art-red-light-5abd00332878e2.5822707515223357951658.jpg',
+				iconSize:     [30, 30],
+				shadowSize:   [0, 0],
+				iconAnchor:   [22, 94],
+				shadowAnchor: [4, 62],
+				popupAnchor:  [-3, -76]
+			}
+		});
+
+		var greenIcon2 = new LeafIcon2({iconUrl: 'https://img2.freepng.es/20180329/kqw/kisspng-traffic-light-computer-icons-red-clip-art-red-light-5abd00332878e2.5822707515223357951658.jpg'});
+		
 		
 		for(var k=0; k<data.length; k++){
 			var lat = data[k].latitud;
 			var log = data[k].longitud;
+			var color = data[k].color;
  			var button = "<b>Semaforo</b><br/>"+
  						"Tiempo de semaforo " + data[k].time+" segundos<br/>"+
  						"<button class='btn btn-success btn-sm btn-block'" +
  						"onclick="+"window.location.href='/traffic/edit/"+data[k].id+"'"+">Editar</button>"+
  						"<button class='btn btn-warning btn-sm btn-block'"+
  						"onclick='deleteTraffic("+data[k].id+")'"+">Eliminar</button>";
-			L.marker([lat,log], {icon: greenIcon}).bindPopup(button).addTo(trafficLight)
+			if(color == true){
+				L.marker([lat,log], {icon: greenIcon}).bindPopup(button).addTo(trafficLight)
+			} else {
+				L.marker([lat,log], {icon: greenIcon2}).bindPopup(button).addTo(trafficLight)
+			}
+			
 		}
 		
 		var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +

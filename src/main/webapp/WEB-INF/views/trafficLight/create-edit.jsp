@@ -50,6 +50,15 @@
 				
 				<div class="col-lg-12">
 					<div class="form-group">
+						<label for="callecarre">Calle</label><br/> 
+						<input id="callecarre" name="callecarre" type="checkbox" value="1">
+						<label>Seleccione este campo si el semaforo es de una calle de lo contrario sera tomado como semaforo de carrera</label>
+					</div>
+				</div>
+				
+				
+				<div class="col-lg-12">
+					<div class="form-group">
 						<input type="submit" value="Guardar" class="btn btn-success float-left">
 					</div>
 				</div>

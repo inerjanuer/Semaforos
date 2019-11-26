@@ -18,6 +18,10 @@ public class TrafficLightDto implements Serializable {
 
 	private SystemDto status;
 
+	private boolean callecarre;
+
+	private boolean color;
+
 	public TrafficLightDto() {
 	}
 
@@ -27,6 +31,27 @@ public class TrafficLightDto implements Serializable {
 		this.longitud = longitud;
 		this.time = time;
 		this.status = status;
+	}
+
+	public TrafficLightDto(long id, String latitud, String longitud, String time, SystemDto status,
+			boolean callecarre) {
+		this.id = id;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.time = time;
+		this.status = status;
+		this.callecarre = callecarre;
+	}
+
+	public TrafficLightDto(long id, String latitud, String longitud, String time, SystemDto status, boolean callecarre,
+			boolean color) {
+		this.id = id;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.time = time;
+		this.status = status;
+		this.callecarre = callecarre;
+		this.color = color;
 	}
 
 	public long getId() {
@@ -67,6 +92,22 @@ public class TrafficLightDto implements Serializable {
 
 	public void setStatus(SystemDto status) {
 		this.status = status;
+	}
+
+	public boolean isCallecarre() {
+		return callecarre;
+	}
+
+	public void setCallecarre(boolean callecarre) {
+		this.callecarre = callecarre;
+	}
+
+	public boolean isColor() {
+		return color;
+	}
+
+	public void setColor(boolean color) {
+		this.color = color;
 	}
 
 }

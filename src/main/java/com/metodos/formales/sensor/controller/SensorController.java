@@ -66,12 +66,12 @@ public class SensorController {
 			dto.setTypeSensor(type);
 			this.service.save(dto);
 			redirectAttributes.addFlashAttribute("messageerror","El sensor se creo correctamente");
-			return "redirect:" +  "/sensor";
+			return "redirect:" +  "/";
 		} catch (Exception e) {
 			LOGGER.error("Error al crear: ", e);
 			redirectAttributes.addFlashAttribute("dto", dto);
 			redirectAttributes.addFlashAttribute("messageerror","No fue posible crear el sensor");
-			return "redirect:" +  "/sensor";
+			return "redirect:" +  "/";
 		}
 	}
 }
