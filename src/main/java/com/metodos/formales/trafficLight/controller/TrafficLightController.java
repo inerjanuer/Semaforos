@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -122,5 +123,19 @@ public class TrafficLightController {
 			redirectAttributes.addFlashAttribute("messageerror","No fue posible crear el sensor");
 			return "redirect:" +  "/traffic";
 		}
+	}
+	
+	@PostMapping("/traffic/delete/{id}")
+	public ResponseEntity<TrafficLightDto> deleteTraffic(@PathVariable("id") Long id) {
+		LOGGER.info("delete: {}", id);
+		try {
+			TrafficLightDto dto = this.service.findById(id);
+			this.service.delete(dto);
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} catch (Exception e) {
+			LOGGER.error("Error al crear: ", e);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+
 	}
 }

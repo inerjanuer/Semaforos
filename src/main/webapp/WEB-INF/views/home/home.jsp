@@ -50,7 +50,9 @@
  			var button = "<b>Semaforo</b><br/>"+
  						"Tiempo de semaforo " + data[k].time+" segundos<br/>"+
  						"<button class='btn btn-success btn-sm btn-block'" +
- 						"onclick="+"window.location.href='/traffic/edit/"+data[k].id+"'"+">Editar</button>";
+ 						"onclick="+"window.location.href='/traffic/edit/"+data[k].id+"'"+">Editar</button>"+
+ 						"<button class='btn btn-warning btn-sm btn-block'"+
+ 						"onclick='deleteTraffic("+data[k].id+")'"+">Eliminar</button>";
 			L.marker([lat,log], {icon: greenIcon}).bindPopup(button).addTo(trafficLight)
 		}
 		
@@ -70,7 +72,18 @@
 		    layers: [grayscale, trafficLight]
 		});
 
-
+	
+	}
+	
+	function deleteTraffic(id){
+		$.ajax({
+		    url: "http://localhost:8080/traffic/delete/"+id,
+		    type: 'POST',
+		    success: function(data) {
+			    console.log(data);
+		    	location.reload();
+		    }
+		});
 	}
 
 

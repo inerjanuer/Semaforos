@@ -40,7 +40,11 @@ public class TrafficLightService {
 		List<TrafficLightEntity> list =  (List<TrafficLightEntity>) this.repository.findAll();
 		return list.stream().map(TrafficLightEntity -> convertEntityToDto(TrafficLightEntity)).collect(Collectors.toList());
 				
-				
+	}
+	
+	@Transactional
+	public void delete(TrafficLightDto dto) {
+		this.repository.delete(convertDtoToEntity(dto));
 	}
 
 	static TrafficLightDto convertEntityToDto(TrafficLightEntity entity) {
