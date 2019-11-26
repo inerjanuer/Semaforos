@@ -26,6 +26,9 @@
       <li class="nav-item">
         <a href="/sensor/create" class="btn">Crear sensor</a>
       </li>
+      <li class="nav-item">
+        <a href="/user/create" class="btn">Crear Usuario</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
        <button type="submit" class="btn btn-block btn-primary"><i class="ni ni-user-run"></i><span>Cerrar Sesion</span></button>

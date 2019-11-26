@@ -9,4 +9,6 @@ import com.metodos.formales.usuario.entity.UsuarioEntity;
 public interface UsuarioDao extends JpaRepository<UsuarioEntity, Long>{
 
 	public UsuarioEntity findById(long id);
+	
+	public UsuarioEntity findByNombre(String nombre);
 }
