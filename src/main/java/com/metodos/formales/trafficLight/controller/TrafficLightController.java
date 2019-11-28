@@ -1,3 +1,4 @@
+
 package com.metodos.formales.trafficLight.controller;
 
 import java.util.List;
@@ -153,7 +154,7 @@ public class TrafficLightController {
 		LOGGER.info("create: {}", dto);
 		
 		try {
-			TrafficLightDto dtoSave = null;
+			TrafficLightDto dtoSave = new TrafficLightDto();
 			if(id != null && id > 0) {
 				dtoSave = this.service.findById(id);
 				dtoSave = dto;

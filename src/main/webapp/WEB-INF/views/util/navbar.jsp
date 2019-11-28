@@ -26,7 +26,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
-       <button type="submit" class="btn btn-block btn-primary"><i class="ni ni-user-run"></i><span>Cerrar Sesion</span></button>
+       <button type="submit" class="btn btn-block btn-primary"><em class="ni ni-user-run"></em><span>Cerrar Sesion</span></button>
 				   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     </form>
   </div>
